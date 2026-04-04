@@ -2,7 +2,7 @@
 
 **A portable AI consulting toolkit that runs from a USB drive.**
 
-Digital consultants spend half their time setting up tools on client machines, only to uninstall everything afterward. Prismo skips all of that -- you plug in a USB drive, pick an audit, and get a structured report. When you're done, you pull the drive out. Nothing installed, nothing left behind.
+Digital consultants spend half their time setting up tools on client machines, only to uninstall everything afterward. Prismo skips all of that: you plug in a USB drive, pick an audit, and get a structured report. When you're done, you pull the drive out. Nothing installed, nothing left behind.
 
 It bundles a portable Node.js runtime, [Claude Code](https://docs.anthropic.com/en/docs/claude-code) as the AI backend, and a library of pre-built diagnostic prompts covering website performance, SEO, MarTech stacks, security, and system health. Works on Windows, macOS, and Linux without touching the host machine's software.
 
@@ -12,7 +12,7 @@ Built by [diShine](https://dishine.it)
 
 ## Why this exists
 
-If you've ever shown up to a client's office and spent the first hour installing Node, Chrome, Lighthouse, and a dozen CLI tools just to run a basic audit -- you know the pain. Prismo was built so you don't have to do that anymore.
+If you've ever shown up to a client's office and spent the first hour installing Node, Chrome, Lighthouse, and a dozen CLI tools just to run a basic audit, you know the pain. Prismo was built so you don't have to do that anymore.
 
 It's especially useful if you:
 
@@ -183,14 +183,14 @@ Prismo needs an active Claude subscription (Pro, Max, or an API key from [consol
 
 ---
 
-## Security -- be honest about what this is
+## Security
 
 Prismo is a consulting convenience tool, not an enterprise security product. Here's what you should know:
 
 - It's **not designed for regulated environments** (GDPR processing, HIPAA, PCI-DSS, ISO 27001 scoping)
-- Diagnostic data transits through Anthropic's API -- don't use it on systems with classified or sensitive personal data
+- Diagnostic data transits through Anthropic's API - don't use it on systems with classified or sensitive personal data
 - Credentials sit on the USB drive in plaintext, so encrypt the drive (BitLocker, VeraCrypt, or FileVault)
-- The AI engine can execute real commands -- always review and confirm before approving anything destructive
+- The AI engine can execute real commands - always review and confirm before approving anything destructive
 - SHA256 checksums verify script integrity at launch, so tampering gets detected and flagged
 
 **Practical advice:**
@@ -214,13 +214,13 @@ Prismo is a consulting convenience tool, not an enterprise security product. Her
 
 ## Acknowledgments
 
-Prismo builds on the foundation of [Wolfix](https://github.com/ipalumbo73/wolfix) by **Ivan Palumbo**. The portable AI infrastructure -- Node.js extraction, cross-platform launchers, USB eject handling -- originates from his work. We're grateful for his contribution to the open-source community.
+Prismo builds on the foundation of [Wolfix](https://github.com/ipalumbo73/wolfix) by **Ivan Palumbo**. The portable AI infrastructure - Node.js extraction, cross-platform launchers, USB eject handling - originates from his work. We're grateful for his contribution to the open-source community.
 
 ---
 
 ## License
 
-MIT License -- see [LICENSE](LICENSE) for details.
+MIT License - see [LICENSE](LICENSE) for details.
 
 Copyright (c) 2026 [diShine](https://dishine.it)
 
