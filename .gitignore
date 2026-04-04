@@ -1,0 +1,22 @@
+# Runtime binaries (downloaded during setup)
+runtime/
+engine/
+
+# Credentials and config
+config/
+
+# Session logs and reports (generated at runtime)
+toolkit/logs/
+toolkit/reports/
+
+# Client profiles (may contain sensitive data)
+toolkit/clients/*.json
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.bak

@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "language": "auto",
+  "default_report_format": "markdown",
+  "branding": {
+    "agency": "diShine Digital Agency",
+    "website": "https://dishine.it",
+    "tagline": "Transform. Automate. Shine."
+  },
+  "client": {
+    "name": "",
+    "domain": "",
+    "notes": ""
+  },
+  "preferences": {
+    "auto_save_reports": true,
+    "report_dir": "toolkit/reports",
+    "prompt_dir": "toolkit/prompts"
+  }
+}

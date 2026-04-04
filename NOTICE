@@ -1,0 +1,12 @@
+Prismo — AI Consulting Toolkit
+Copyright (c) 2026 diShine Digital Agency
+https://dishine.it
+
+This project is derived from Wolfix by Ivan Palumbo
+https://github.com/ipalumbo73/wolfix
+Licensed under the MIT License
+
+The original Wolfix project provided the portable AI
+infrastructure (Node.js extraction, cross-platform launchers,
+USB eject handling) upon which Prismo builds its extended
+digital consulting capabilities.
