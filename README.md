@@ -1,6 +1,6 @@
 # Prismo
 
-**AI Consulting Toolkit — Portable, powerful, zero-installation.**
+**AI Consulting Toolkit: Portable, powerful, zero-installation.**
 
 > Carry your AI-powered digital consulting toolkit on a USB drive. Run diagnostics, audits, and analysis on any machine — Windows, Linux, macOS — without installing anything.
 
