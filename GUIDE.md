@@ -1,4 +1,4 @@
-# Prismo — Complete User Guide
+# Prismo: Complete User Guide
 
 **Everything you need to know to set up, use, and get the most out of Prismo.**
 
