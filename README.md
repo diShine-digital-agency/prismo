@@ -1,25 +1,23 @@
 # Prismo
 
-**A portable AI consulting toolkit that runs from a USB drive.**
+**A zero-footprint AI consulting toolkit for on-site audits.**
 
-Digital consultants spend half their time setting up tools on client machines, only to uninstall everything afterward. Prismo skips all of that: you plug in a USB drive, pick an audit, and get a structured report. When you're done, you pull the drive out. Nothing installed, nothing left behind.
+Digital consultants waste hours setting up environments on client machines—installing Node, Chrome, or CLI tools—only to scrub them clean a day later. Prismo eliminates the overhead. Plug in the USB, run your audit, and pull the drive. No installation, no residue, no "it works on my machine" excuses.
 
-It bundles a portable Node.js runtime, [Claude Code](https://docs.anthropic.com/en/docs/claude-code) as the AI backend, and a library of pre-built diagnostic prompts covering website performance, SEO, MarTech stacks, security, and system health. Works on Windows, macOS, and Linux without touching the host machine's software.
+Prismo bundles a portable Node.js runtime with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and a library of hardened diagnostic prompts. It handles everything from Core Web Vitals and Technical SEO to MarTech data layer validation across Windows, macOS, and Linux.
 
 Built by [diShine](https://dishine.it). For more details about Prismo, [read the detailled article on diShine Blog](https://dishine.it/blog/prismo-ai-consulting-toolkit-usb/).
 
 ---
 
-## Why this exists
+## The philosophy: plug, audit, leave.
 
-If you've ever shown up to a client's office and spent the first hour installing Node, Chrome, Lighthouse, and a dozen CLI tools just to run a basic audit, you know the pain. Prismo was built so you don't have to do that anymore.
+We built Prismo because "professionalism" shouldn't involve asking a client's IT department for admin rights just to run Lighthouse. 
 
-It's especially useful if you:
-
-- **Do on-site consulting** and can't (or shouldn't) install software on client machines
-- **Run recurring audits** across multiple clients and want a consistent, portable setup
-- **Work in marketing technology** and need to quickly check GTM, GA4, pixels, and consent across sites
-- **Want standardized reports** your whole team can produce the same way
+- **Zero Residue:** nothing is written to the host’s permanent storage.
+- **Unified Logic:** your SEO, Tech, and Security audits use the same AI-driven logic every time.
+- **Offline-First Prep:** setup happens on your machine; the client machine only provides the internet gateway for the AI.
+- **Client Continuity:** profiles are stored on the drive, allowing you to compare today's audit with the one from six months ago instantly.
 
 ---
 
