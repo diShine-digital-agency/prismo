@@ -8,15 +8,29 @@ config/
 # Session logs and reports (generated at runtime)
 toolkit/logs/
 toolkit/reports/
+!toolkit/logs/.gitkeep
+!toolkit/reports/.gitkeep
 
 # Client profiles (may contain sensitive data)
 toolkit/clients/*.json
+
+# SHA256 checksums (generated during setup)
+SHA256SUMS
 
 # OS files
 .DS_Store
 Thumbs.db
 Desktop.ini
+ehthumbs.db
 
 # Temporary files
 *.tmp
 *.bak
+*.swp
+*~
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

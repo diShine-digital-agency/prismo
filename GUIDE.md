@@ -501,17 +501,17 @@ The main configuration file is `prismo.config.json` at the root of your USB driv
 
 ```json
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "language": "auto",
   "default_report_format": "markdown",
   "branding": {
     "agency": "diShine Digital Agency",
-    "website": "https://dishine.it",
-    "tagline": "Transform. Automate. Shine."
+    "website": "https://dishine.it"
   },
   "client": {
     "name": "Client Name Here",
     "domain": "client.com",
+    "industry": "E-commerce",
     "notes": "Any relevant context"
   },
   "preferences": {
@@ -532,6 +532,7 @@ The main configuration file is `prismo.config.json` at the root of your USB driv
 | `branding.website` | Your agency URL in reports | Any URL |
 | `client.name` | Current client (shown in banner + reports) | Any text |
 | `client.domain` | Client's website domain | e.g., `"acme.com"` |
+| `client.industry` | Client's industry sector | e.g., `"E-commerce"` |
 | `auto_save_reports` | Automatically save every audit | `true` or `false` |
 
 ### Customizing for your own agency
@@ -542,8 +543,7 @@ If you fork Prismo for your own agency, change the `branding` section:
 {
   "branding": {
     "agency": "Your Agency Name",
-    "website": "https://youragency.com",
-    "tagline": "Your Tagline Here"
+    "website": "https://youragency.com"
   }
 }
 ```

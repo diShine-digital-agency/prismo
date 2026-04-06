@@ -1,15 +1,15 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "language": "auto",
   "default_report_format": "markdown",
   "branding": {
     "agency": "diShine Digital Agency",
-    "website": "https://dishine.it",
-    "tagline": "Transform. Automate. Shine."
+    "website": "https://dishine.it"
   },
   "client": {
     "name": "",
     "domain": "",
+    "industry": "",
     "notes": ""
   },
   "preferences": {

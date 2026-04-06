@@ -12,6 +12,12 @@ set -euo pipefail
 # === AUTO-DETECT USB ROOT ===
 USB_ROOT="$(cd "$(dirname "$0")" && pwd)"
 
+# === READ VERSION ===
+PRISMO_VERSION="unknown"
+if [ -f "$USB_ROOT/VERSION" ]; then
+    PRISMO_VERSION=$(cat "$USB_ROOT/VERSION" | tr -d '[:space:]')
+fi
+
 # === CHECKSUM VERIFICATION ===
 if [ -f "$USB_ROOT/SHA256SUMS" ]; then
     if command -v sha256sum &>/dev/null; then
@@ -275,6 +281,50 @@ set_language() {
         SECTION_MAR="MarTech & Data"
         SECTION_SEC="Security"
         SECTION_UTL="Utilities"
+    elif [ "$1" = "fr" ]; then
+        # --- System Health ---
+        M1=" [1]  Diagnostic systeme"
+        M2=" [2]  Analyse de logs"
+        M3=" [3]  Diagnostic reseau"
+        # --- Web & Performance ---
+        M4=" [4]  Audit performance web"
+        M5=" [5]  Analyse stack technique"
+        M6=" [6]  Audit accessibilite (WCAG 2.1)"
+        # --- SEO ---
+        M7=" [7]  Audit SEO technique"
+        M8=" [8]  Analyse SEO on-page"
+        M9=" [9]  Snapshot SEO concurrentiel"
+        # --- MarTech & Data ---
+        M10="[10]  Audit stack MarTech"
+        M11="[11]  Controle qualite des donnees"
+        # --- Security ---
+        M12="[12]  Scan securite site web"
+        M13="[13]  Audit securite systeme"
+        # --- Utilities ---
+        M14="[14]  Session AI interactive"
+        M15="[15]  Diagnostic SSH distant"
+        M0=" [0]  Ejecter la cle USB"
+        MQ=" [Q]  Quitter"
+        MSG_CHOICE="Choix : "
+        MSG_URL="URL du site web : "
+        MSG_URLS="URL concurrents (separes par des virgules) : "
+        MSG_LOGPATH="Chemin du fichier log : "
+        MSG_PROBLEM="Decrivez le probleme : "
+        MSG_SSHHOST="Hote (user@ip) : "
+        MSG_DIAGSTART="[*] Demarrage du diagnostic..."
+        MSG_BYE="Au revoir. Aucune trace laissee sur le systeme."
+        MSG_EJECT_SYNC="Vidange des tampons..."
+        MSG_EJECT_OK="Cle USB ejectee en securite. Vous pouvez la retirer."
+        MSG_EJECT_FAIL="Impossible d'ejecter la cle USB. Fermez tous les fichiers et reessayez."
+        MSG_INVALID="Choix invalide."
+        MSG_NOTFOUND="[ERREUR] Fichier introuvable :"
+        MSG_SAVED="[OK] Rapport sauvegarde dans"
+        SECTION_SYS="Sante systeme"
+        SECTION_WEB="Web & Performance"
+        SECTION_SEO="SEO"
+        SECTION_MAR="MarTech & Donnees"
+        SECTION_SEC="Securite"
+        SECTION_UTL="Utilitaires"
     else
         # --- System Health ---
         M1=" [1]  Diagnosi sistema"
@@ -338,7 +388,7 @@ show_banner() {
     echo -e "${CYAN}    >_ AI Consulting Toolkit${NC}"
     echo -e "${CYAN}       by diShine Digital Agency${NC}"
     echo ""
-    echo -e "${DARKGRAY}    v1.0.0${NC}"
+    echo -e "${DARKGRAY}    v${PRISMO_VERSION}${NC}"
     echo -e "${CYAN}    Portable — no installation required${NC}"
     echo -e "${CYAN}  ================================================${NC}"
     echo ""
@@ -356,7 +406,7 @@ show_banner() {
     read -r lang_choice
     case "$lang_choice" in
         E|e) set_language "en" ;;
-        F|f) set_language "en" ;; # French uses English for now
+        F|f) set_language "fr" ;;
         *) set_language "it" ;;
     esac
     echo ""
