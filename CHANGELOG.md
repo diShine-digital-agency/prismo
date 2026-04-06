@@ -24,8 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **Configuration** — removed marketing tagline from `prismo.config.json`, keeping only functional fields.
-- **README** — restructured for clarity, removed promotional language, added badges and structured sections.
+- **Configuration** — cleaned language of `prismo.config.json`, keeping only functional fields.
+- **README** — restructured for clarity, added badges and structured sections.
 - **GUIDE** — reviewed for completeness and consistency.
 
 ## [1.0.0] — 2026-03-20
