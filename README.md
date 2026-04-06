@@ -6,7 +6,7 @@ Digital consultants spend half their time setting up tools on client machines, o
 
 It bundles a portable Node.js runtime, [Claude Code](https://docs.anthropic.com/en/docs/claude-code) as the AI backend, and a library of pre-built diagnostic prompts covering website performance, SEO, MarTech stacks, security, and system health. Works on Windows, macOS, and Linux without touching the host machine's software.
 
-Built by [diShine](https://dishine.it). For more details about Prismo,[read the detailled article on diShine Blog](https://dishine.it/blog/prismo-ai-consulting-toolkit-usb/).
+Built by [diShine](https://dishine.it). For more details about Prismo, [read the detailled article on diShine Blog](https://dishine.it/blog/prismo-ai-consulting-toolkit-usb/).
 
 ---
 
