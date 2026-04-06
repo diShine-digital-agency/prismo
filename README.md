@@ -21,6 +21,14 @@ We built Prismo because "professionalism" shouldn't involve asking a client's IT
 
 ---
 
+## How 'Zero-Footprint' Works (Air-Gapped vs Offline)
+
+### 🌐 Internet Requirements
+**Prismo is Zero-Footprint, but NOT Air-Gapped.** 
+While absolutely no software is installed on the client's hard drive, Prismo **requires an active internet connection** to query the Anthropic AI engine. The host machine acts strictly as a network gateway for the portable Node.js runtime to reach the Claude APIs.
+
+---
+
 ## What's included
 
 ### System health
