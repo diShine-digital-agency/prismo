@@ -66,16 +66,6 @@ It works on Windows, macOS, and Linux. You don't install anything on the compute
 - A computer running **Windows 10/11**, **macOS 10.15+**, or **Linux (x64)**
 - **Internet connection** (Prismo needs to reach the AI service online)
 
-## ⚠️ Note on Windows Execution Policies
-
-Windows blocks PowerShell scripts (`.ps1`) from running on external drives by default. If `launch.ps1` or `setup-usb.ps1` flashes red text and fails to run, you need to launch it with an execution policy bypass. 
-
-Open PowerShell as Administrator (or standard user) and run:
-
-	```powershell
-	Set-ExecutionPolicy Bypass -Scope Process -Force
-	.\launch.ps1
-	
 ---
 
 ## 3. Setting Up the USB Drive (One-Time)
@@ -143,13 +133,14 @@ Prismo relies on portable binaries that are too large to host on GitHub. Before 
 
 ### If the script won't run (execution policy error)
 
-Windows may block PowerShell scripts by default. Run this first:
+Windows blocks PowerShell scripts by default. If you get a red error, run this command first:
+
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 ```
 
-Then retry the setup command.
+Then retry the setup command. You only have to do this for the one-time setup. When launching Prismo later, launch.bat handles this automatically.
 
 ---
 
@@ -599,14 +590,14 @@ Type **`0`** and press Enter. Prismo will:
 **Cause:** The AI engine wasn't downloaded during setup.
 **Fix:** Re-run `setup-usb.ps1`. If the issue persists, check that `engine/` folder has content.
 
-### "Execution Policy" error on Windows
+### "Execution Policy" error on Windows during setup
 
-**Cause:** Windows blocks PowerShell scripts by default.
+**Cause:** Windows blocks PowerShell scripts by default when running setup-usb.ps1.
 **Fix:** Open PowerShell as Administrator and run:
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 ```
-Then retry.
+(Note: If you get this error when trying to launch Prismo for an audit, just double-click launch.bat instead of trying to run the .ps1 file directly).
 
 ### "Permission denied" on macOS/Linux
 
