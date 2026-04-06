@@ -37,6 +37,13 @@ param(
 $ErrorActionPreference = "Continue"
 $UsbRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 
+# Read version from VERSION file
+$PrismoVersion = "unknown"
+$versionFile = Join-Path $UsbRoot "VERSION"
+if (Test-Path $versionFile) {
+    $PrismoVersion = (Get-Content $versionFile -Raw).Trim()
+}
+
 # ======================================================================
 # ENVIRONMENT SETUP
 # ======================================================================
@@ -75,7 +82,7 @@ if ($nodeModulesDir) {
 # VALIDATION
 # ======================================================================
 if (-not (Test-Path $nodeBin)) {
-    Write-Host "[ERRORE] Node.js non trovato. Esegui setup-usb.ps1 prima." -ForegroundColor Red
+    Write-Host "[ERROR] Node.js not found. Run setup-usb.ps1 first." -ForegroundColor Red
     exit 1
 }
 
@@ -86,15 +93,15 @@ if (-not (Test-Path $engineBin)) {
         $wrapperDir = Split-Path $engineBin
         if (-not (Test-Path $wrapperDir)) { New-Item -ItemType Directory -Path $wrapperDir -Force | Out-Null }
         Set-Content -Path $engineBin -Value $wrapperContent -Encoding ASCII
-        Write-Host "[OK] ai-engine.cmd generato da cli.js" -ForegroundColor Green
+        Write-Host "[OK] ai-engine.cmd generated from cli.js" -ForegroundColor Green
     } else {
-        Write-Host "[*] claude.cmd non trovato, tento auto-repair..." -ForegroundColor Yellow
+        Write-Host "[*] claude.cmd not found, attempting auto-repair..." -ForegroundColor Yellow
         $tempFiles = Get-ChildItem (Join-Path $UsbRoot "engine") -Filter ".claude.cmd-*" -ErrorAction SilentlyContinue
         if ($tempFiles) {
             Copy-Item $tempFiles[0].FullName $engineBin -Force
-            Write-Host "[OK] claude.cmd ripristinato da $($tempFiles[0].Name)" -ForegroundColor Green
+            Write-Host "[OK] claude.cmd restored from $($tempFiles[0].Name)" -ForegroundColor Green
         } else {
-            Write-Host "[ERRORE] Motore AI non trovato. Esegui setup-usb.ps1 prima." -ForegroundColor Red
+            Write-Host "[ERROR] AI engine not found. Run setup-usb.ps1 first." -ForegroundColor Red
             exit 1
         }
     }
@@ -331,7 +338,7 @@ function Show-Banner {
     Write-Host "    >_ AI Consulting Toolkit"                      -ForegroundColor Cyan
     Write-Host "       by diShine Digital Agency"                  -ForegroundColor Cyan
     Write-Host ""
-    Write-Host "    v1.0.0"                                        -ForegroundColor DarkGray
+    Write-Host "    v$PrismoVersion"                                    -ForegroundColor DarkGray
     Write-Host "    Portable - no installation required"           -ForegroundColor Cyan
     Write-Host "  ================================================" -ForegroundColor Cyan
     Write-Host ""

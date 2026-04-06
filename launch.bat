@@ -12,6 +12,12 @@ chcp 65001 >nul 2>&1
 set "USB_ROOT=%~dp0"
 set "USB_ROOT=%USB_ROOT:~0,-1%"
 
+:: === READ VERSION ===
+set "PRISMO_VERSION=unknown"
+if exist "%USB_ROOT%\VERSION" (
+    set /p PRISMO_VERSION=<"%USB_ROOT%\VERSION"
+)
+
 :: === BANNER ===
 powershell -NoProfile -Command ^
   "Write-Host ''; " ^
@@ -25,7 +31,7 @@ powershell -NoProfile -Command ^
   "Write-Host '    >_ AI Consulting Toolkit' -F Cyan; " ^
   "Write-Host '       by diShine Digital Agency' -F Cyan; " ^
   "Write-Host ''; " ^
-  "Write-Host '    v1.0.0' -F DarkGray; " ^
+  "Write-Host '    v' -NoNewline -F DarkGray; Write-Host '%PRISMO_VERSION%' -F DarkGray; " ^
   "Write-Host '    Portable - no installation required' -F Cyan; " ^
   "Write-Host '  ================================================' -F Cyan; " ^
   "Write-Host ''; " ^
@@ -134,8 +140,8 @@ goto env_setup
 
 set "NODE_DIR=%USB_ROOT%\runtime\node-win-x64"
 if not exist "%NODE_DIR%\node.exe" (
-    echo [ERRORE] Node.js non trovato in %NODE_DIR%
-    echo Esegui prima setup-usb.ps1 per preparare la chiavetta.
+    echo [ERROR] Node.js not found in %NODE_DIR%
+    echo Run setup-usb.ps1 first to prepare the USB drive.
     pause
     exit /b 1
 )
@@ -147,26 +153,26 @@ if not exist "%CLAUDE_BIN%" (
         set "CLAUDE_BIN=%USB_ROOT%\engine\claude.cmd"
         goto claude_ok
     )
-    echo [*] Motore AI non trovato, tento auto-repair...
+    echo [*] AI engine not found, attempting auto-repair...
     for %%F in ("%USB_ROOT%\engine\.claude.cmd-*") do (
         copy "%%F" "%CLAUDE_BIN%" >nul 2>&1
-        echo [OK] Motore AI ripristinato da %%~nxF
+        echo [OK] AI engine restored from %%~nxF
         goto claude_ok
     )
     :: Try cli.js wrapper
     if exist "%USB_ROOT%\engine\node_modules\@anthropic-ai\claude-code\cli.js" (
         echo @echo off > "%CLAUDE_BIN%"
         echo "%NODE_DIR%\node.exe" "%USB_ROOT%\engine\node_modules\@anthropic-ai\claude-code\cli.js" %%* >> "%CLAUDE_BIN%"
-        echo [OK] Motore AI generato da cli.js
+        echo [OK] AI engine generated from cli.js
         goto claude_ok
     )
     if exist "%USB_ROOT%\engine\lib\node_modules\@anthropic-ai\claude-code\cli.js" (
         echo @echo off > "%CLAUDE_BIN%"
         echo "%NODE_DIR%\node.exe" "%USB_ROOT%\engine\lib\node_modules\@anthropic-ai\claude-code\cli.js" %%* >> "%CLAUDE_BIN%"
-        echo [OK] Motore AI generato da cli.js
+        echo [OK] AI engine generated from cli.js
         goto claude_ok
     )
-    echo [ERRORE] Motore AI non trovato. Esegui setup-usb.ps1 prima.
+    echo [ERROR] AI engine not found. Run setup-usb.ps1 first.
     pause
     exit /b 1
 )

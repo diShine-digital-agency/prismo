@@ -169,5 +169,5 @@ Write-Host $MsgFail -ForegroundColor Yellow
 Start-Sleep -Seconds 1
 Start-Process rundll32.exe -ArgumentList "shell32.dll,Control_RunDLL hotplug.dll"
 Write-Host ""
-Write-Host "Press Enter to close / Premi Invio per chiudere"
+Write-Host "Press Enter to close"
 Read-Host
