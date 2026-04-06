@@ -8,6 +8,8 @@ config/
 # Session logs and reports (generated at runtime)
 toolkit/logs/
 toolkit/reports/
+!toolkit/logs/.gitkeep
+!toolkit/reports/.gitkeep
 
 # Client profiles (may contain sensitive data)
 toolkit/clients/*.json
