@@ -69,7 +69,9 @@ It works on Windows, macOS, and Linux. You don't install anything on the compute
 ## ⚠️ Note on Windows Execution Policies
 
 Windows blocks PowerShell scripts (`.ps1`) from running on external drives by default. If `launch.ps1` or `setup-usb.ps1` flashes red text and fails to run, you need to launch it with an execution policy bypass. 
+
 Open PowerShell as Administrator (or standard user) and run:
+
 	```powershell
 	Set-ExecutionPolicy Bypass -Scope Process -Force
 	.\launch.ps1
