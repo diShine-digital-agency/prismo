@@ -128,6 +128,23 @@ Then retry the setup command.
 
 ---
 
+## 🛠️ First-Time Setup (Populating the Runtimes)
+
+Prismo relies on portable binaries that are too large to host on GitHub. Before your first audit, you must prepare the USB drive:
+
+1. **Format a USB Drive** to exFAT (for Windows/macOS compatibility).
+2. **Clone/Copy this repository** to the root of the USB drive.
+3. **Download Node.js Portable:**
+   - Download the Node.js binaries for Windows, macOS, and Linux.
+   - Extract them into `prismo/runtime/node-win-x64/`, `prismo/runtime/node-macos-arm64/`, etc.
+4. **Install Claude Code:**
+   - From your host machine, run `npm install -g @anthropic-ai/claude-code --prefix /path/to/usb/engine`
+5. **Generate the Integrity File:**
+   - For security, Prismo checks for tampering. Generate the hash file from the root of the USB:
+   - `find . -type f -not -name "SHA256SUMS" -exec sha256sum {} + > SHA256SUMS`
+  
+---
+
 ## 4. Launching Prismo
 
 ### On Windows
