@@ -66,6 +66,14 @@ It works on Windows, macOS, and Linux. You don't install anything on the compute
 - A computer running **Windows 10/11**, **macOS 10.15+**, or **Linux (x64)**
 - **Internet connection** (Prismo needs to reach the AI service online)
 
+## ⚠️ Note on Windows Execution Policies
+
+Windows blocks PowerShell scripts (`.ps1`) from running on external drives by default. If `launch.ps1` or `setup-usb.ps1` flashes red text and fails to run, you need to launch it with an execution policy bypass. 
+Open PowerShell as Administrator (or standard user) and run:
+	```powershell
+	Set-ExecutionPolicy Bypass -Scope Process -Force
+	.\launch.ps1
+	
 ---
 
 ## 3. Setting Up the USB Drive (One-Time)
