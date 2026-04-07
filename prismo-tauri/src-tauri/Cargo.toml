@@ -1,0 +1,23 @@
+[package]
+name = "prismo-tauri"
+version = "1.0.0"
+description = "Prismo — AI Consulting Toolkit by diShine Digital Agency"
+authors = ["diShine Digital Agency <kevin@dishine.it>"]
+edition = "2021"
+
+[lib]
+name = "prismo_tauri_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+tauri-plugin-shell = "2"
+tauri-plugin-fs = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = "0.4"
+

@@ -1,0 +1,16 @@
+{
+  "brand": "Prismo by diShine Digital Agency",
+  "palette": {
+    "primary": { "name": "Prismo Purple", "hex": "#6C5CE7" },
+    "secondary": { "name": "Teal Accent", "hex": "#00CEC9" },
+    "dark": { "name": "Charcoal", "hex": "#2D3436" },
+    "light": { "name": "Snow", "hex": "#F5F6FA" }
+  },
+  "severity": {
+    "critical": { "hex": "#D63031" },
+    "high": { "hex": "#E17055" },
+    "medium": { "hex": "#FDCB6E" },
+    "low": { "hex": "#00B894" },
+    "info": { "hex": "#74B9FF" }
+  }
+}
