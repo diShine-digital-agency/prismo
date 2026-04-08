@@ -1,10 +1,21 @@
-# Prismo
+# Prismo, a zero-footrpint AI oonulting toolkit for on-site tech & marketing audits
 
-**A zero-footprint AI consulting toolkit for on-site audits.**
+<p align="center">
+  <img src="images/prismo_01_launch_banner_anchor.webp" alt="Prismo launcher" width="60%">
+</p>
 
 Prismo bundles a portable Node.js runtime with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and a library of diagnostic prompts on a USB drive. It runs 15 audits across system health, web performance, SEO, MarTech, and security — without installing anything on the client's machine.
 
 Built by [diShine Digital Agency](https://dishine.it). Read more on the [diShine blog](https://dishine.it/blog/prismo-ai-consulting-toolkit-usb/).
+
+<p align="center">
+  <img src="images/prismo_02_main_menu_window.webp" alt="Prismo menu window" width="49%">
+  <img src="images/prismo_05_portable_usb_workflow.webp" alt="Prismo portable workflow" width="49%">
+</p>
+
+<p align="center">
+  <img src="images/prismo_04_report_review_window.webp" alt="Prismo review window" width="60%">
+</p>
 
 ---
 
