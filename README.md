@@ -6,7 +6,7 @@
   <img src="images/prismo_01_launch_banner_anchor.webp" alt="Prismo launcher" width="60%">
 </p>
 
-*Prismo bundles a portable Node.js runtime with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and a library of diagnostic prompts on a USB drive. It runs 15 audits across system health, web performance, SEO, MarTech, and security — without installing anything on the client's machine.*
+*Prismo bundles a portable Node.js runtime with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and a library of diagnostic prompts on a USB drive. It runs 15 audits across system health, web performance, SEO, MarTech, and security, without installing anything on the client's machine.*
 
 Built by [diShine Digital Agency](https://dishine.it). Read more on the [diShine blog](https://dishine.it/blog/prismo-ai-consulting-toolkit-usb/).
 
@@ -34,14 +34,14 @@ Built by [diShine Digital Agency](https://dishine.it). Read more on the [diShine
 
 ## How It Works
 
-1. **Prepare** — Run `setup-usb.ps1` once on a Windows machine to download Node.js, the AI engine, and audit tools onto a USB drive.
-2. **Launch** — Plug the USB into any Windows, macOS, or Linux machine and run the launcher script.
-3. **Audit** — Select from 15 diagnostic options. The AI engine collects data, analyzes it, and generates a structured Markdown report.
-4. **Leave** — Remove the USB. Nothing is installed or left behind on the host.
+1. **Prepare**: Run `setup-usb.ps1` once on a Windows machine to download Node.js, the AI engine, and audit tools onto a USB drive.
+2. **Launch**: Plug the USB into any Windows, macOS, or Linux machine and run the launcher script.
+3. **Audit**: Select from 15 diagnostic options. The AI engine collects data, analyzes it, and generates a structured Markdown report.
+4. **Leave**: Remove the USB. Nothing is installed or left behind on the host.
 
 ### Internet Requirement
 
-Prismo is zero-footprint but **not air-gapped**. It requires an active internet connection to query the Anthropic AI API. No software is installed on the client's hard drive — the host machine acts only as a network gateway.
+Prismo is zero-footprint but **not air-gapped**. It requires an active internet connection to query the Anthropic AI API. No software is installed on the client's hard drive, the host machine acts only as a network gateway.
 
 ---
 
@@ -233,9 +233,9 @@ Prismo requires an active Claude subscription (Pro, Max, or an API key from [con
 Prismo is a consulting convenience tool, not an enterprise security product. Key considerations:
 
 - It is **not designed for regulated environments** (GDPR processing, HIPAA, PCI-DSS, ISO 27001 scoping).
-- Diagnostic data transits through Anthropic's API — do not use it on systems with classified or sensitive personal data.
-- Credentials sit on the USB drive in plaintext — encrypt the drive (BitLocker, VeraCrypt, FileVault).
-- The AI engine can execute real commands — always review and confirm before approving anything destructive.
+- Diagnostic data transits through Anthropic's API, do not use it on systems with classified or sensitive personal data.
+- Credentials sit on the USB drive in plaintext. Encrypt the drive (BitLocker, VeraCrypt, FileVault).
+- The AI engine can execute real commands. Always review and confirm before approving anything destructive.
 - SHA256 checksums verify script integrity at launch for tamper detection.
 
 See [SECURITY.md](SECURITY.md) for the full security policy and vulnerability reporting.
@@ -253,23 +253,23 @@ See [SECURITY.md](SECURITY.md) for the full security policy and vulnerability re
 
 ## Documentation
 
-- **[GUIDE.md](GUIDE.md)** — Complete user guide with step-by-step instructions for all features
-- **[CHANGELOG.md](CHANGELOG.md)** — Version history
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** — How to contribute
-- **[SECURITY.md](SECURITY.md)** — Security policy and vulnerability reporting
-- **[LICENSE](LICENSE)** — MIT License
+- **[GUIDE.md](GUIDE.md)**: Complete user guide with step-by-step instructions for all features
+- **[CHANGELOG.md](CHANGELOG.md)**: Version history
+- **[CONTRIBUTING.md](CONTRIBUTING.md)**: How to contribute
+- **[SECURITY.md](SECURITY.md)**: Security policy and vulnerability reporting
+- **[LICENSE](LICENSE)**: MIT License
 
 ---
 
 ## Acknowledgments
 
-Prismo builds on the foundation of [Wolfix](https://github.com/ipalumbo73/wolfix) by **Ivan Palumbo**. The portable AI infrastructure — Node.js extraction, cross-platform launchers, USB eject handling — originates from his work.
+Prismo builds on the foundation of [Wolfix](https://github.com/ipalumbo73/wolfix) by **Ivan Palumbo**. The portable AI infrastructure (Node.js extraction, cross-platform launchers, USB eject handling) originates from his work.
 
 ---
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License: see [LICENSE](LICENSE) for details.
 
 Copyright (c) 2026 [diShine Digital Agency](https://dishine.it)
 
