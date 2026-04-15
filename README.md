@@ -2,7 +2,7 @@
 
 <div align="center">
   
-![diShine Logo](https://dishine.it/favicon.ico)
+[![diShine Logo](https://dishine.it/favicon.ico)](https://dishine.it/)
 
 ***Transform. Automate. Shine!***
 
