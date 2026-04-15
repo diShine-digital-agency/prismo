@@ -1,4 +1,4 @@
-# 🌟 Prismo, a zero-footrpint AI consulting toolkit for on-site tech & marketing audits
+# 🌟 Prismo, a zero-footprint AI consulting toolkit for on-site tech & marketing audits
 
 <div align="center">
   
