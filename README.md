@@ -1,6 +1,7 @@
 # 🌟 Prismo, a zero-footrpint AI consulting toolkit for on-site tech & marketing audits
 
 <div align="center">
+  
 ![diShine Logo](https://dishine.it/favicon.ico)
 
 ***Transform. Automate. Shine!***
