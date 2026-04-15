@@ -6,18 +6,16 @@
   <img src="images/prismo_01_launch_banner_anchor.webp" alt="Prismo launcher" width="60%">
 </p>
 
-*Prismo bundles a portable Node.js runtime with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and a library of diagnostic prompts on a USB drive. It runs 15 audits across system health, web performance, SEO, MarTech, and security, without installing anything on the client's machine.*
-
-Built by [diShine Digital Agency](https://dishine.it). Read more on the [diShine blog](https://dishine.it/blog/prismo-ai-consulting-toolkit-usb/).
-
 ![diShine Logo](https://dishine.it/favicon.ico)
-
-**Transform. Automate. Shine!**
 
 [![Website](https://img.shields.io/badge/Website-dishine.it-blue)](https://dishine.it/blog/prismo-ai-consulting-toolkit-usb/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-diShine-blue)](https://linkedin.com/company/100682596)
 [![Location](https://img.shields.io/badge/Location-Milan%2C%20Italy-green)]()
 [![License: CC0](https://img.shields.io/badge/License-CC0%201.0-lightgrey)](LICENSE)
+
+*Prismo bundles a portable Node.js runtime with [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and a library of diagnostic prompts on a USB drive. It runs 15 audits across system health, web performance, SEO, MarTech, and security, without installing anything on the client's machine.*
+
+Built by [diShine Digital Agency](https://dishine.it). Read more on the [diShine blog](https://dishine.it/blog/prismo-ai-consulting-toolkit-usb/).
 
 </div>
 
