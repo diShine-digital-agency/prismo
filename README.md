@@ -32,14 +32,14 @@ Built by [diShine Digital Agency](https://dishine.it). Read more on the [diShine
 
 ---
 
-## How It Works
+## How tt works
 
 1. **Prepare**: Run `setup-usb.ps1` once on a Windows machine to download Node.js, the AI engine, and audit tools onto a USB drive.
 2. **Launch**: Plug the USB into any Windows, macOS, or Linux machine and run the launcher script.
 3. **Audit**: Select from 15 diagnostic options. The AI engine collects data, analyzes it, and generates a structured Markdown report.
 4. **Leave**: Remove the USB. Nothing is installed or left behind on the host.
 
-### Internet Requirement
+### Internet requirement
 
 Prismo is zero-footprint but **not air-gapped**. It requires an active internet connection to query the Anthropic AI API. No software is installed on the client's hard drive, the host machine acts only as a network gateway.
 
@@ -89,7 +89,7 @@ Prismo is zero-footprint but **not air-gapped**. It requires an active internet 
 
 ---
 
-## Quick Start
+## Quick start
 
 ### 1. Prepare the USB (one-time, requires internet)
 
@@ -122,7 +122,7 @@ Select an option from the menu. For web, SEO, and MarTech audits, provide the ta
 
 ---
 
-## First-Time Setup
+## First-time setup
 
 Prismo relies on portable binaries that are too large for GitHub. Before your first audit:
 
@@ -142,7 +142,7 @@ Or use the automated script: `.\setup-usb.ps1 -UsbDrive E`
 
 ---
 
-## USB Drive Structure
+## USB Drive structure
 
 ```
 USB_ROOT/
@@ -190,7 +190,7 @@ Edit `prismo.config.json` to set defaults:
 }
 ```
 
-### Client Profiles
+### Client profiles
 
 Store per-client context in `toolkit/clients/` so the AI has background on who you are auditing. Repeat visits build on previous findings instead of starting from scratch.
 
@@ -207,7 +207,7 @@ Store per-client context in `toolkit/clients/` so the AI has background on who y
 
 ---
 
-## Platform Support
+## Platform support
 
 | Platform | System Diagnosis | Web Audit | Guided Repair |
 |----------|-----------------|-----------|---------------|
