@@ -479,16 +479,28 @@ do_log_analysis() {
         echo -e "${RED}${MSG_NOTFOUND} $log_path${NC}"
         return
     fi
-    run_ai -p "Analyze the log file '$log_path'. Identify errors, warnings, and anomalous patterns. Provide a structured summary and suggest solutions."
+    local prompt
+    prompt=$(load_prompt "system/log-analysis.md")
+    run_ai -p "$prompt
+
+Log file to analyze: $log_path
+Read the file content using available filesystem tools before starting the analysis."
 }
 
 do_network_diagnosis() {
     echo -e "${GREEN}${MSG_DIAGSTART}${NC}"
+    local prompt
+    prompt=$(load_prompt "system/network-diagnosis.md")
+    local os_context
     if [ "$OS_TYPE" = "Darwin" ]; then
-        run_ai -p "Complete macOS network diagnosis: interfaces (ifconfig), IP config, DNS (scutil --dns), routing (netstat -rn), listening ports (lsof -i -P), active connections, firewall (socketfilterfw), connectivity test. Identify problems and propose fixes."
+        os_context="Current OS: macOS $OS_VERSION. Use macOS-specific commands: ifconfig, scutil --dns, netstat -rn, lsof -i -P, /usr/libexec/ApplicationFirewall/socketfilterfw."
     else
-        run_ai -p "Complete Linux network diagnosis: interfaces, IP, DNS, routing, listening ports (ss/netstat), active connections, firewall (iptables/nftables/firewalld), connectivity test. Identify problems and propose fixes."
+        os_context="Current OS: Linux ($OS_NAME, kernel $KERNEL). Use Linux-specific commands: ip addr, resolvectl or /etc/resolv.conf, ss -tulnp, iptables/nftables/ufw/firewalld."
     fi
+    run_ai -p "$prompt
+
+$os_context
+Host: $HOSTNAME_VAL | RAM: ${RAM_GB}GB"
 }
 
 # --- Web & Performance ---
@@ -602,11 +614,18 @@ Target URL: $site_url"
 
 do_system_security() {
     echo -e "${GREEN}${MSG_DIAGSTART}${NC}"
+    local prompt
+    prompt=$(load_prompt "security/system-security.md")
+    local os_context
     if [ "$OS_TYPE" = "Darwin" ]; then
-        run_ai -p "Run a COMPLETE and AUTONOMOUS macOS security analysis without asking for confirmation. Check: users/groups (dscl), FileVault status, Gatekeeper, SIP (csrutil), firewall, SSH config, open ports, installed profiles, suspicious launch agents/daemons, Keychain issues, software updates, remote login, screen sharing, AirDrop settings. Do NOT ask for confirmation, do NOT stop between checks. Produce a structured report with severity (CRITICAL/HIGH/MEDIUM/LOW) and remediation for each issue found."
+        os_context="Current OS: macOS $OS_VERSION (Darwin). Use macOS-specific commands as indicated in the checklist. IMPORTANT: Execute all diagnostic checks autonomously without pausing for confirmation. Only ask for confirmation before proposing to apply a fix."
     else
-        run_ai -p "Run a COMPLETE and AUTONOMOUS Linux security analysis without asking for confirmation. Check: users/groups, sudoers, SUID/SGID, open ports, exposed services, SSH config, fail2ban, security updates, sensitive file permissions (/etc/shadow, /etc/passwd), suspicious crontabs, anomalous processes, SELinux/AppArmor, authorized SSH keys. Do NOT ask for confirmation. Produce a structured report with severity (CRITICAL/HIGH/MEDIUM/LOW) and remediation for each issue."
+        os_context="Current OS: Linux ($OS_NAME, kernel $KERNEL). Use Linux-specific commands as indicated in the checklist. IMPORTANT: Execute all diagnostic checks autonomously without pausing for confirmation. Only ask for confirmation before proposing to apply a fix."
     fi
+    run_ai -p "$prompt
+
+$os_context
+Host: $HOSTNAME_VAL | RAM: ${RAM_GB}GB"
 }
 
 # --- Utilities ---

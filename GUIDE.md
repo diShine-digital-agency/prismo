@@ -15,13 +15,14 @@ This guide is written for anyone — you don't need to be technical to follow it
 5. [Understanding the Menu](#5-understanding-the-menu)
 6. [Running Your First Audit](#6-running-your-first-audit)
 7. [All 15 Features Explained](#7-all-15-features-explained)
-8. [Working with Reports](#8-working-with-reports)
-9. [Client Profiles](#9-client-profiles)
-10. [Configuration](#10-configuration)
-11. [Removing the USB Safely](#11-removing-the-usb-safely)
-12. [Troubleshooting](#12-troubleshooting)
-13. [Security & Privacy](#13-security--privacy)
-14. [FAQ](#14-faq)
+8. [Data Collection Scripts](#8-data-collection-scripts)
+9. [Working with Reports](#9-working-with-reports)
+10. [Client Profiles](#10-client-profiles)
+11. [Configuration](#11-configuration)
+12. [Removing the USB Safely](#12-removing-the-usb-safely)
+13. [Troubleshooting](#13-troubleshooting)
+14. [Security & Privacy](#14-security--privacy)
+15. [FAQ](#15-faq)
 
 ---
 
@@ -71,21 +72,6 @@ It works on Windows, macOS, and Linux. You don't install anything on the compute
 ## 3. Setting Up the USB Drive (One-Time)
 
 You only need to do this **once**. After setup, the USB works on any computer.
-
-### 🛠️ First-Time Setup (Populating the Runtimes)
-
-Prismo relies on portable binaries that are too large to host on GitHub. Before your first audit, you must prepare the USB drive:
-
-1. **Format a USB Drive** to exFAT (for Windows/macOS compatibility).
-2. **Clone/Copy this repository** to the root of the USB drive.
-3. **Download Node.js Portable:**
-   - Download the Node.js binaries for Windows, macOS, and Linux.
-   - Extract them into `prismo/runtime/node-win-x64/`, `prismo/runtime/node-macos-arm64/`, etc.
-4. **Install Claude Code:**
-   - From your host machine, run `npm install -g @anthropic-ai/claude-code --prefix /path/to/usb/engine`
-5. **Generate the Integrity File:**
-   - For security, Prismo checks for tampering. Generate the hash file from the root of the USB:
-   - `find . -type f -not -name "SHA256SUMS" -exec sha256sum {} + > SHA256SUMS`
 
 ### Step-by-step
 
@@ -197,7 +183,7 @@ You should see something like this:
     >_ AI Consulting Toolkit
        by diShine Digital Agency
 
-    v1.0.0
+    v1.2.0
     Portable — no installation required
   ================================================
 
@@ -404,7 +390,37 @@ These audit **websites** — you provide a URL, Prismo does the rest.
 
 ---
 
-## 8. Working with Reports
+## 8. Data Collection Scripts
+
+The `toolkit/scripts/` directory contains standalone scripts for collecting raw data without involving the AI engine. They write structured plain-text output to a file, which you can review and then optionally feed into an interactive AI session (option 14).
+
+This is useful when:
+- you want to inspect raw data before any AI interpretation
+- the target machine has restricted internet access and you need to collect data offline first
+- you want a snapshot for your records independent of the AI session
+
+| Script | When to use |
+|--------|------------|
+| `collect-linux.sh` | Before or alongside option 1 or 13 on a Linux machine |
+| `collect-macos.sh` | Before or alongside option 1 or 13 on a macOS machine |
+| `collect-web.sh` | Before options 4, 5, 7, 8, 10, 12 for any URL |
+| `collect-win.ps1` | Before or alongside option 1 or 13 on a Windows machine |
+
+**Usage examples:**
+
+```bash
+# Collect web data, save to the reports folder
+bash /Volumes/USB_NAME/toolkit/scripts/collect-web.sh https://example.com /Volumes/USB_NAME/toolkit/reports/
+
+# Collect macOS system data
+bash /Volumes/USB_NAME/toolkit/scripts/collect-macos.sh /Volumes/USB_NAME/toolkit/reports/
+```
+
+The output file is named `prismo_collect_<type>_<host>_<timestamp>.txt`. You can then open option 14 (interactive AI session), attach or paste the file path, and ask the AI to analyze it using the relevant prompt from the menu.
+
+---
+
+## 9. Working with Reports
 
 ### Where reports are saved
 
@@ -448,7 +464,7 @@ Every report includes:
 
 ---
 
-## 9. Client Profiles
+## 10. Client Profiles
 
 Client profiles let you store context about each client, so reports are automatically branded and the AI has relevant background.
 
@@ -493,7 +509,7 @@ The client name will appear in the Prismo banner and in all generated reports.
 
 ---
 
-## 10. Configuration
+## 11. Configuration
 
 The main configuration file is `prismo.config.json` at the root of your USB drive.
 
@@ -501,7 +517,7 @@ The main configuration file is `prismo.config.json` at the root of your USB driv
 
 ```json
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "language": "auto",
   "default_report_format": "markdown",
   "branding": {
@@ -550,7 +566,7 @@ If you fork Prismo for your own agency, change the `branding` section:
 
 ---
 
-## 11. Removing the USB Safely
+## 12. Removing the USB Safely
 
 **Always use the safe eject option** instead of just pulling out the USB drive.
 
@@ -578,7 +594,7 @@ Type **`0`** and press Enter. Prismo will:
 
 ---
 
-## 12. Troubleshooting
+## 13. Troubleshooting
 
 ### "Node.js not found" error
 
@@ -642,7 +658,7 @@ chmod +x /Volumes/USB_NAME/launch.sh
 
 ---
 
-## 13. Security & Privacy
+## 14. Security & Privacy
 
 ### What data leaves the machine?
 
@@ -686,7 +702,7 @@ When you run an audit, the AI needs to process the data. This means:
 
 ---
 
-## 14. FAQ
+## 15. FAQ
 
 ### General
 
